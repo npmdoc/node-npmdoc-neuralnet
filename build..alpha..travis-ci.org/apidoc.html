@@ -1,0 +1,153 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/panchishin/neuralnet"
+
+    >neuralnet (v1.0.1)</a>
+</h1>
+<h4>a general purpose neural net with back propagation, an A.I. tool useful for machine learning and decision making</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neuralnet">module neuralnet</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neuralnet.neuralnet">
+            function <span class="apidocSignatureSpan"></span>neuralnet
+            <span class="apidocSignatureSpan">( configuration )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neuralnet" id="apidoc.module.neuralnet">module neuralnet</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neuralnet.neuralnet" id="apidoc.element.neuralnet.neuralnet">
+        function <span class="apidocSignatureSpan"></span>neuralnet
+        <span class="apidocSignatureSpan">( configuration )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">neuralnet = function ( configuration ) {
+	var config = configuration || {}
+	config = clone(config)
+	config.inputs = config.inputs || 2
+	config.hiddenLayers = config.hiddenLayers || 1
+	config.hiddenNodesPerLayer = config.hiddenNodesPerLayer || config.inputs * 5
+	config.outputs = config.outputs || config.inputs
+	config.learningRate = Math.max(0,config.learningRate * 1.0) || 1
+	config.filterTraining = toFunction( ( configuration &#x26;&#x26; configuration.filterTraining ) ? configuration.filterTraining : undefined
+ )
+
+	config.layers = config.layers || createLayers(config)
+
+	if ( config.hiddenLayers &#x3c;= 0 ) { fail(&#x22;Must have at least 1 hidden layer&#x22;) }
+	
+	return {
+		layers : config.layers,
+		predict : function( input ) {
+			predict( input , this.layers )
+			return this.layers[this.layers.length - 1].nodes
+		},
+		predictBoolean : function( input ) {
+			var result = this.predict( input )
+			for( var index in result ) { result[index] = Math.round(result[index]) }
+			return result
+		},
+		train : function( input , output , learningRate ) {
+			train( input , this.layers , output , learningRate || config.learningRate , config.filterTraining );
+			return this.layers[this.layers.length - 1].nodes
+		},
+		clone : function( ) {
+			var item = create(config);
+			return item;
+		},
+		new : function( configuration ) {
+			var result = create( configuration || config )
+			result.layers = createLayers(config)
+			return result
+		},
+		learningRate : function( learningRate ) {
+			config.learningRate = Math.max(0,learningRate * 1.0) || config.learningRate
+			return config.learningRate
+		},
+		config : function() {
+			var result = clone(config)
+			result.filterTraining = config.filterTraining ? config.filterTraining.toString() : config.filterTraining;
+			return result
+		},
+		reset : function() {
+			this.layers = createLayers(config)
+			return this;
+		}
+	}		
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
