@@ -1,6 +1,6 @@
 # npmdoc-neuralnet
 
-#### api documentation for  [neuralnet (v1.0.1)](https://github.com/panchishin/neuralnet)  [![npm package](https://img.shields.io/npm/v/npmdoc-neuralnet.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-neuralnet) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-neuralnet.svg)](https://travis-ci.org/npmdoc/node-npmdoc-neuralnet)
+#### basic api documentation for  [neuralnet (v1.0.1)](https://github.com/panchishin/neuralnet)  [![npm package](https://img.shields.io/npm/v/npmdoc-neuralnet.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-neuralnet) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-neuralnet.svg)](https://travis-ci.org/npmdoc/node-npmdoc-neuralnet)
 
 #### a general purpose neural net with back propagation, an A.I. tool useful for machine learning and decision making
 
@@ -21,20 +21,24 @@
 ```json
 
 {
-    "name": "neuralnet",
-    "version": "1.0.1",
+    "author": {
+        "name": "Anton Panchishin"
+    },
+    "bugs": {
+        "url": "https://github.com/panchishin/neuralnet/issues"
+    },
+    "dependencies": {},
     "description": "a general purpose neural net with back propagation, an A.I. tool useful for machine learning and decision making",
-    "main": "neuralnet.js",
     "devDependencies": {
         "expresso": "0.9.2"
     },
-    "scripts": {
-        "test": "expresso test/*"
+    "directories": {},
+    "dist": {
+        "shasum": "2e4ed42442e44b3504ff0b39961cda5b43e94c65",
+        "tarball": "https://registry.npmjs.org/neuralnet/-/neuralnet-1.0.1.tgz"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/panchishin/neuralnet.git"
-    },
+    "gitHead": "10bd6bc533b63e67441d923d14cd4bf2adb3079d",
+    "homepage": "https://github.com/panchishin/neuralnet",
     "keywords": [
         "neuralnet",
         "neural net",
@@ -46,12 +50,24 @@
         "backpropagation",
         "back propagation"
     ],
-    "author": "Anton Panchishin",
     "license": "unlicense",
-    "bugs": {
-        "url": "https://github.com/panchishin/neuralnet/issues"
+    "main": "neuralnet.js",
+    "maintainers": [
+        {
+            "name": "panchishin"
+        }
+    ],
+    "name": "neuralnet",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/panchishin/neuralnet.git"
     },
-    "homepage": "https://github.com/panchishin/neuralnet"
+    "scripts": {
+        "test": "expresso test/*"
+    },
+    "version": "1.0.1",
+    "bin": {}
 }
 ```
 
